@@ -18,7 +18,7 @@ pipeline {
     //  steps {
     //    sh 'docker build -t java .'
     //  }
-    }
+    //}
     // stage('Deploy to tomcat') {
     //   steps {
     //     sshagent(['tomcat-server-details']) {
