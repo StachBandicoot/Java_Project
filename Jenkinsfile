@@ -4,20 +4,20 @@ pipeline {
     maven 'maven'
   }
   stages {
-    // stage('Build app') {
-    //   steps {
-    //     sh 'mvn clean install package'
-    //   }
-    // }
-    // stage('Push Artifact to S3') {
-    //   steps {
-    //     sh 'aws s3 cp webapp/target/webapp.war s3://demophanis3us'
-    //   }
-    // }
-    stage('DockerBuild') {
-      steps {
-        sh 'docker build -t java .'
-      }
+     stage('Build app') {
+       steps {
+         sh 'mvn clean install package'
+       }
+     }
+     stage('Push Artifact to S3') {
+       steps {
+         sh 'aws s3 cp webapp/target/webapp.war s3://webapp-349549621698'
+       }
+     }
+    //stage('DockerBuild') {
+    //  steps {
+    //    sh 'docker build -t java .'
+    //  }
     }
     // stage('Deploy to tomcat') {
     //   steps {
