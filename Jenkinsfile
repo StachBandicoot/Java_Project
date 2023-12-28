@@ -4,6 +4,11 @@ pipeline {
     maven 'maven'
   }
   stages {
+    stage('SonarQube Analysis') {
+       steps {
+         sh 'sonar-scanner -X -Dsonar.sources=. -Dproject.settings=sonar-project.properties -Dsonar.projectKey=Java_App_Jenkins -Dsonar.host.url=$SonarQube_URL -Dsonar.login=$SonarQube_Access_Token'
+       }
+     }
      stage('Build app') {
        steps {
          sh 'mvn clean install package'
